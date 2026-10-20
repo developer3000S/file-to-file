@@ -1,0 +1,124 @@
+# Development artifacts
+*.o
+*.log
+
+# Build files
+*.exe
+*.dll
+
+# Temporary files
+*.tmp
+
+# IDE files
+.idea/
+.vscode/
+
+# Environment files
+.env
+
+# Test files
+*.test
+*.spec
+
+# Documentation
+*.md
+
+# Cache files
+.cache
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build directories
+build/
+dist/
+
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node.js specific
+node_modules/
+npm-debug.log*
+
+# Java specific
+*.class
+*.jar
+
+# C/C++ specific
+*.out
+*.obj
+*.so
+*.a
+*.lib
+
+# Go specific
+*.go
+
+# Rust specific
+target/
+Cargo.lock
+
+# Docker specific
+Dockerfile
+.dockerignore
+
+# Configuration files
+*.config
+*.cfg
+
+# Log files
+*.log
+
+# Coverage files
+.coverage
+
+# Jupyter notebooks
+.ipynb_checkpoints
+
+# Virtual environments
+venv/
+.env/
+
+# Miscellaneous
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+
+# Local overrides
+local_settings.py
+
+# Artifacts
+*.pdf
+*.docx
+*.xlsx
+*.csv
+*.json
+*.xml
+*.html
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.bmp
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+
+# Ignore all files in the Sample directory
+Sample/
+
+# Ignore all files in the .qwen directory
+.qwen/
