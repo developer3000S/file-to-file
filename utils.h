@@ -59,6 +59,7 @@ int pandoc_pdf_engine_args(char *buf, size_t len);
 /* --- XLSX через python3 ---------------------------------------------------- */
 int xlsx_to_csv(const char *in, const char *out);
 int csv_to_xlsx(const char *in, const char *out);
+int xlsx_to_md_multi(const char *in, const char *out);
 int run_python_script(const char *code, const char *const args[], int nargs);
 
 /* --- Таблицы / CSV --------------------------------------------------------- */

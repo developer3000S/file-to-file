@@ -89,40 +89,25 @@ int docx_to_xlsx(const char *in, const char *out) {
 }
 
 int xlsx_to_md(const char *in, const char *out) {
-    if (need_tool("python3") != 0) return -1;
-    char csv[4096];
-    if (work_path(csv, sizeof(csv), "in.csv") != 0) return -1;
-    int rc = xlsx_to_csv(in, csv);
-    if (rc == 0) {
-        table_t *t = csv_read_file(csv);
-        if (!t || t->nrows == 0) {
-            table_free(t);
-            unlink(csv);
-            return -1;
-        }
-        rc = md_write_table(t, out);
-        table_free(t);
-    }
-    unlink(csv);
-    return rc;
+    return xlsx_to_md_multi(in, out);
 }
 
 int xlsx_to_docx(const char *in, const char *out) {
     if (need_tool("python3") != 0) return -1;
-    char csv[4096];
-    if (work_path(csv, sizeof(csv), "in.csv") != 0) return -1;
-    int rc = xlsx_to_csv(in, csv);
-    if (rc == 0) rc = run_pandoc("csv", "docx", csv, out);
-    unlink(csv);
+    char md[4096];
+    if (work_path(md, sizeof(md), "tmp.md") != 0) return -1;
+    int rc = xlsx_to_md_multi(in, md);
+    if (rc == 0) rc = md_to_docx(md, out);
+    unlink(md);
     return rc;
 }
 
 int xlsx_to_pdf(const char *in, const char *out) {
     if (need_tool("python3") != 0) return -1;
-    char csv[4096];
-    if (work_path(csv, sizeof(csv), "in.csv") != 0) return -1;
-    int rc = xlsx_to_csv(in, csv);
-    if (rc == 0) rc = run_pandoc("csv", "pdf", csv, out);
-    unlink(csv);
+    char md[4096];
+    if (work_path(md, sizeof(md), "tmp.md") != 0) return -1;
+    int rc = xlsx_to_md_multi(in, md);
+    if (rc == 0) rc = md_to_pdf(md, out);
+    unlink(md);
     return rc;
 }
